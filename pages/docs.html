@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Документация API — MaxMineOS</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #2b5876, #4e4376);
+      color: white;
+      text-align: left;
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    h1 {
+      font-size: 3em;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    p, ul, li {
+      font-size: 1.1em;
+    }
+
+    code {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+
+    a {
+      color: #80d4ff;
+      text-decoration: underline;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 20px 10px 40px 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      color: white;
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background-color: #45a049;
+    }
+
+    .language-switch {
+      float: right;
+      margin-top: -80px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="language-switch">
+    <button class="btn" onclick="switchLanguage('ru')">RU</button>
+    <button class="btn" onclick="switchLanguage('en')">EN</button>
+  </div>
+
+  <h1 id="title">Документация API для разработчиков</h1>
+
+  <div id="content-ru">
+    <p>
+      В нашей командной оболочке есть API для создания приложений. Для начала, напишите приложение на <strong>Python</strong>.
+      Оно может включать любое количество файлов с любым именем, но должно также содержать файл <code>main.py</code>,
+      в котором есть функция <code>main</code>, принимающая аргументы:
+    </p>
+
+    <ul>
+      <li>только <code>argv</code> (аргументы командной строки, включая имя приложения)</li>
+      <li>или <code>argv</code> и <code>abspath</code> (путь установки командной оболочки)</li>
+      <li>или <code>argv</code>, <code>abspath</code> и <code>current_user</code> (имя текущего пользователя)</li>
+    </ul>
+
+    <p><strong>Типы аргументов:</strong></p>
+    <ul>
+      <li><code>argv</code>: <code>list[str]</code></li>
+      <li><code>abspath</code>: <code>str</code></li>
+      <li><code>current_user</code>: <code>str</code></li>
+    </ul>
+
+    <p>
+      После этого вы можете упаковать своё приложение в zip-архив с именем <code>&lt;имяприложения&gt;.mos</code>.
+      Затем отправьте его с описанием на почту <a href="mailto:maximdev@internet.ru">maximdev@internet.ru</a>.
+      Вы будете уведомлены, если ваше приложение пройдёт модерацию.
+    </p>
+  </div>
+
+  <div id="content-en" style="display:none;">
+    <p>
+      Our command shell provides an API for creating applications. To get started, write an application in <strong>Python</strong>.
+      It can include any number of files with any names, but must also contain a <code>main.py</code> file
+      with a <code>main</code> function that accepts arguments:
+    </p>
+
+    <ul>
+      <li>Only <code>argv</code> (command-line arguments including the app name)</li>
+      <li>Or <code>argv</code> and <code>abspath</code> (shell installation path)</li>
+      <li>Or <code>argv</code>, <code>abspath</code>, and <code>current_user</code> (current username)</li>
+    </ul>
+
+    <p><strong>Argument types:</strong></p>
+    <ul>
+      <li><code>argv</code>: <code>list[str]</code></li>
+      <li><code>abspath</code>: <code>str</code></li>
+      <li><code>current_user</code>: <code>str</code></li>
+    </ul>
+
+    <p>
+      Then you can package your app into a zip archive named <code>&lt;appname&gt;.mos</code>.
+      Send it with a description to <a href="mailto:maximdev@internet.ru">maximdev@internet.ru</a>.
+      You will be notified if your app passes moderation.
+    </p>
+  </div>
+
+  <a href="/" class="btn">← Назад на главную</a>
+
+  <script>
+    function switchLanguage(lang) {
+      const ru = document.getElementById('content-ru');
+      const en = document.getElementById('content-en');
+      const title = document.getElementById('title');
+
+      if (lang === 'ru') {
+        ru.style.display = 'block';
+        en.style.display = 'none';
+        title.textContent = 'Документация API для разработчиков';
+      } else {
+        ru.style.display = 'none';
+        en.style.display = 'block';
+        title.textContent = 'API Documentation for Developers';
+      }
+    }
+  </script>
+
+</body>
+</html>
