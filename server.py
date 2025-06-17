@@ -1,5 +1,4 @@
 import flask
-import os
 
 app = flask.Flask("max-mine.ru", template_folder="pages")
 
@@ -15,5 +14,9 @@ def docs():
 @app.route("/pkg/<path:filename>")
 def pkg(packagename):
     return flask.send_from_directory("pkg", packagename)
+
+@app.route("/files/<path:filename>")
+def files(filename):
+    return flask.send_from_directory("files", filename)
 
 app.run("0.0.0.0", 5001)
