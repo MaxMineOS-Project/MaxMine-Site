@@ -1,5 +1,4 @@
 import flask
-
 app = flask.Flask("max-mine.ru", template_folder="pages")
 
 
